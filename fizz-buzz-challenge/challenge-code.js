@@ -1,17 +1,10 @@
 const fizzBuzz = ( number ) => {
-	const fizzBuzzArray = [];
-	for ( let i = 1; i <= number; i++ ) {
-		if ( i % 3 === 0 && i % 5 === 0 ) {
-			fizzBuzzArray.push( 'FizzBuzz' );
-		} else if ( i % 3 === 0 ) {
-			fizzBuzzArray.push( 'Fizz' );
-		} else if ( i % 5 === 0 ) {
-			fizzBuzzArray.push( 'Buzz' );
-		} else {
-			fizzBuzzArray.push( i );
-		}
-	}
-	return fizzBuzzArray;
+  return Array.from( { length: number }, (_, i) => {
+    const n = i + 1;
+    const fizz = n % 3 === 0 ? 'Fizz' : '';
+    const buzz = n % 5 === 0 ? 'Buzz' : '';
+    return fizz || buzz ? fizz + buzz : n;
+  } );
 }
 
 module.exports = fizzBuzz;
