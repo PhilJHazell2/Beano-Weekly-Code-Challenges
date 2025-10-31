@@ -4,18 +4,23 @@ global.console = { log: jest.fn() }
 
 describe("ZombieFight Class", () => {
 
+	let game;
+
+	beforeEach(() => {
+		game = new ZombieFight( 100, 100 );
+	});
+
 	test("Game outputs lose message when Player HP hits 0", () => {
-		const game = new ZombieFight( 0, 100 );
+		game.playerHP = 0;
 		expect( game.startFight() ).toBe( 'You Lose! A zombie has eaten your brain!' );
 	});
 
 	test("Game outputs win message when Zombie HP hits 0", () => {
-		const game = new ZombieFight( 100, 0 );
+		game.zombieHP = 0;
 		expect( game.startFight() ).toBe( 'You Win! Take that you undead fool!' );
 	});
 
 	test("dealDamage reduces HP correctly", () => {
-		const game = new ZombieFight( 100, 100 );
 		const [ newHP, damage ] = game.dealDamage( 100 );
 		expect( damage ).toBeGreaterThanOrEqual( 5 );
 		expect( damage ).toBeLessThanOrEqual( 15 );
@@ -23,7 +28,6 @@ describe("ZombieFight Class", () => {
 	});
 
 	test("currentTurn switches correctly", () => {
-		const game = new ZombieFight( 100, 100 );
 		expect( game.currentTurn ).toBe( 'player' );
 		game.switchTurn();
 		expect( game.currentTurn ).toBe( 'zombie' );
@@ -32,7 +36,6 @@ describe("ZombieFight Class", () => {
 	});
 
 	test("generateRandomNumber produces numbers in range", () => {
-		const game = new ZombieFight( 100, 100 );
 		for ( let i = 0; i < 100; i++ ) {
 			const num = game.generateRandomNumber( 5, 15 );
 			expect( num ).toBeGreaterThanOrEqual( 5 );
@@ -41,8 +44,6 @@ describe("ZombieFight Class", () => {
 	});
 
 	test( "runCurrentPlayerAttack reduces HP of correct player", () => {
-		const game = new ZombieFight( 100, 100 );
-
 		// Player's turn
 		game.runCurrentPlayerAttack();
 		expect( game.zombieHP ).toBeLessThan( 100 );
@@ -54,7 +55,6 @@ describe("ZombieFight Class", () => {
 	});
 
 	test("console.log should be called at least once", () => {
-		const game = new ZombieFight( 100, 100 );
 		game.startFight();
 
 		expect( console.log ).toHaveBeenCalled();
