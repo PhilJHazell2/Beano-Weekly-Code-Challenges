@@ -1,8 +1,3 @@
-const isPalindrome = ( word ) => {
-	const lowercased = word.toLowerCase();
-	const reversed   = lowercased.split('').reverse().join('');
-
-	return lowercased === reversed;
-}
+const isPalindrome = str => str.toLowerCase() === str.toLowerCase().split('').reverse().join('');
 
 module.exports = isPalindrome;

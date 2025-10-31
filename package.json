@@ -1,0 +1,14 @@
+{
+  "name": "code-challenge-ny-nicky",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "test": "jest"
+  },
+  "private": true,
+  "dependencies": {
+    "jest": "^30.2.0"
+  }
+}
