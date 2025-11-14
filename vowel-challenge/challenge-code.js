@@ -13,9 +13,9 @@ const countVowels = ( sentence ) => {
 const countLetterOcurrence = ( sentence, letters ) => {
   const lettersToCount = Array.isArray( letters ) ? letters : [ letters ];
 
-  const regexp = new RegExp(`[${lettersToCount}]`, "g");
+  const regexp = new RegExp( `[${lettersToCount}]`, 'g' );
 
-  return (sentence.match(regexp) || []).length;
+  return ( sentence.match( regexp ) || [] ).length;
 };
 
 module.exports = countVowels;
