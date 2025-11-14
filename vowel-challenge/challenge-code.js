@@ -1,11 +1,12 @@
 const countVowels = ( sentence ) => {
+	const lowercaseSentence = sentence.toLowerCase();
 	return { 
-		'total': countLetterOcurrence( sentence.toLowerCase(), ['a', 'e', 'i', 'o', 'u'] ),
-		'a': countLetterOcurrence( sentence.toLowerCase(), 'a' ),
-		'e': countLetterOcurrence( sentence.toLowerCase(), 'e' ),
-		'i': countLetterOcurrence( sentence.toLowerCase(), 'i' ),
-		'o': countLetterOcurrence( sentence.toLowerCase(), 'o' ),
-		'u': countLetterOcurrence( sentence.toLowerCase(), 'u' ),
+		'total': countLetterOcurrence( lowercaseSentence, ['a', 'e', 'i', 'o', 'u'] ),
+		'a': countLetterOcurrence( lowercaseSentence, 'a' ),
+		'e': countLetterOcurrence( lowercaseSentence, 'e' ),
+		'i': countLetterOcurrence( lowercaseSentence, 'i' ),
+		'o': countLetterOcurrence( lowercaseSentence, 'o' ),
+		'u': countLetterOcurrence( lowercaseSentence, 'u' ),
 	}
 }
 
